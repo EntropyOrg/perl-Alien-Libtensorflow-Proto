@@ -1,0 +1,22 @@
+use alienfile;
+
+use Alien::Libtensorflow;
+use File::Find::Rule;
+
+probe sub { 'share' };
+
+share {
+  my $match_version =
+    $ENV{ALIEN_LIBTENSORFLOW_PROTO_VERSION}
+    || Alien::Libtensorflow->version;
+
+  start_url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v${match_version}.tar.gz";
+  plugin 'Download';
+  plugin 'Extract' => 'tar.gz';
+
+  patch sub {
+    unlink for File::Find::Rule->file->not_name( qr/\.proto$/ )->in('.')
+  };
+
+  plugin 'Build::Copy';
+}
