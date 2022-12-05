@@ -27,7 +27,7 @@ Load proto definition:
 =head1 DESCRIPTION
 
 This distribution provides the C<libtensorflow> proto definition files that
-correspond to the version installed via C<Alien::Libtensorflow>.
+correspond to the version installed via L<Alien::Libtensorflow>.
 
 =head1 SEE ALSO
 

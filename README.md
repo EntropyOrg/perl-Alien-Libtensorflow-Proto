@@ -18,7 +18,7 @@ Load proto definition:
 # DESCRIPTION
 
 This distribution provides the `libtensorflow` proto definition files that
-correspond to the version installed via `Alien::Libtensorflow`.
+correspond to the version installed via [Alien::Libtensorflow](https://metacpan.org/pod/Alien%3A%3ALibtensorflow).
 
 # SEE ALSO
 
