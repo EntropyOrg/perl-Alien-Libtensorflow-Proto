@@ -1,11 +1,11 @@
 use alienfile;
 
-use Alien::Libtensorflow;
-use File::Find::Rule;
-
 probe sub { 'share' };
 
 share {
+  requires 'Alien::Libtensorflow';
+  requires 'File::Find::Rule';
+
   my $match_version =
     $ENV{ALIEN_LIBTENSORFLOW_PROTO_VERSION}
     || Alien::Libtensorflow->version;
