@@ -1,5 +1,7 @@
 use alienfile;
 
+use Module::Load ();
+
 probe sub { 'share' };
 
 share {
@@ -8,7 +10,7 @@ share {
 
   my $match_version =
     $ENV{ALIEN_LIBTENSORFLOW_PROTO_VERSION}
-    || do { eval "use Alien::Libtensorflow;"; Alien::Libtensorflow->version };
+    || do { Module::Load::load(Alien::Libtensorflow); Alien::Libtensorflow->version };
 
   start_url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v${match_version}.tar.gz";
   plugin 'Download';
